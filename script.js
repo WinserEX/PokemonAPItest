@@ -1,11 +1,10 @@
 const form = document.querySelector('#form');
 
-
 form.addEventListener('submit', async (pre) => {
     pre.preventDefault();
     try {
         const searchTerm = form.elements.query.value
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchTerm}`);
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}`);
         makeComponent(res); 
     } 
     catch (e) {
